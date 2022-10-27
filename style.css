@@ -1,0 +1,38 @@
+@font-face {
+    font-family: Jakarta;
+    src: url(assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Jakarta;
+}
+
+body {
+    margin: 2vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px red solid;
+}
+
+header h3 {
+    border: 1px red solid;
+}
+
+header h5 {
+    border: 1px red solid;
+}
+
+header h3#value {
+    color: white;
+    background-color:navy;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
