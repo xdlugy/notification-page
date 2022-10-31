@@ -46,6 +46,7 @@ h5 {
 
 h5:hover {
     cursor: pointer;
+    color: navy;
 }
 
 .notification {
