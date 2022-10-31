@@ -16,23 +16,47 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    border: 1px red solid;
+    align-items: flex-end;
+    margin-bottom: 20px;
 }
 
-header h3 {
-    border: 1px red solid;
-}
-
-header h5 {
-    border: 1px red solid;
-}
-
-header h3#value {
+span#value {
     color: white;
     background-color:navy;
-    border-radius: 10px;
+    border-radius: 7px;
+    padding: 3px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.new_notification {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(78, 124, 202, 0.11);
+    color: #5a606b;
+    border-radius: 10px;
+}
+
+.avatar {
+    height: 50px;
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+
+.name {
+    font-weight: bold;
+    color: black;
+}
+
+.content {
+    font-weight: bold;
+}
+
+.time {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
 }
