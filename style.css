@@ -20,7 +20,7 @@ header {
     margin-bottom: 20px;
 }
 
-span#value {
+.value {
     color: white;
     background-color:navy;
     border-radius: 7px;
@@ -36,14 +36,17 @@ h5 {
     cursor: pointer;
 }
 
-.new-notification {
+.notification {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: rgba(60, 124, 233, 0.075);
     color: #5a606b;
     border-radius: 10px;
     min-height: 50px;
     font-size: 15px;
+}
+
+.new {
+    background-color: rgba(60, 124, 233, 0.075);
 }
 
 .avatar {
@@ -82,12 +85,8 @@ h5 {
     color:blue;
 }
 
-.old-notification {
-    padding: 10px;
-    margin-bottom: 10px;
-    color: #5a606b;
-    min-height: 50px;
-    font-size: 15px;
+.old {
+    background-color: none;
 }
 
 .text {
@@ -105,5 +104,5 @@ h5 {
 }
 
 * {
-    transition: all 0.5s;
+    transition: all 0.2s;
 }
