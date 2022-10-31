@@ -11,6 +11,15 @@
 
 body {
     margin: 2vh;
+    background-color: rgba(60, 124, 233, 0.075);
+}
+
+main {
+    margin: auto;
+    max-width: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
 }
 
 header {
@@ -33,6 +42,9 @@ header {
 
 h5 {
     color: gray;
+}
+
+h5:hover {
     cursor: pointer;
 }
 
@@ -54,11 +66,22 @@ h5 {
     width: auto;
     float: left;
     margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.avatar:hover {
+    cursor: pointer;
+    transform:scale(1.1);
 }
 
 .name {
     font-weight: bold;
     color: black;
+}
+
+.name:hover {
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .content {
@@ -85,15 +108,27 @@ h5 {
     color:blue;
 }
 
+.app:hover {
+    cursor: pointer;
+    color: navy;
+}
+
 .old {
     background-color: none;
 }
 
 .text {
     border: 1px solid gray;
+    border-radius: 5px;
     padding: 15px;
     margin-top: 10px;
     margin-left: 60px;
+}
+
+.text:hover {
+    cursor: pointer;
+    background-color: rgba(60, 124, 233, 0.075);
+    border: solid 1px rgba(60, 124, 233, 0.075);
 }
 
 .picture {
@@ -101,6 +136,11 @@ h5 {
     width: 50px;
     height: 50px;
     margin-left: 20px;
+}
+
+.picture:hover {
+    cursor: pointer;
+    transform:scale(1.1);
 }
 
 * {
