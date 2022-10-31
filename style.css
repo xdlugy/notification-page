@@ -31,12 +31,18 @@ span#value {
     font-size: 15px;
 }
 
-.new_notification {
+h5 {
+    color: gray;
+}
+
+.new-notification {
     padding: 10px;
     margin-bottom: 10px;
-    background-color: rgba(78, 124, 202, 0.11);
+    background-color: rgba(60, 124, 233, 0.075);
     color: #5a606b;
     border-radius: 10px;
+    min-height: 50px;
+    font-size: 15px;
 }
 
 .avatar {
@@ -58,5 +64,40 @@ span#value {
 .time {
     font-size: 12px;
     font-weight: bold;
-    color: gray;
+    color: lightslategray;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.app {
+    font-weight: bold;
+    color:blue;
+}
+
+.old-notification {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #5a606b;
+    min-height: 50px;
+}
+
+.text {
+    border: 1px solid gray;
+    padding: 15px;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.picture {
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
 }
