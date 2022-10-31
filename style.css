@@ -33,6 +33,7 @@ span#value {
 
 h5 {
     color: gray;
+    cursor: pointer;
 }
 
 .new-notification {
@@ -86,6 +87,7 @@ h5 {
     margin-bottom: 10px;
     color: #5a606b;
     min-height: 50px;
+    font-size: 15px;
 }
 
 .text {
@@ -100,4 +102,8 @@ h5 {
     width: 50px;
     height: 50px;
     margin-left: 20px;
+}
+
+* {
+    transition: all 0.5s;
 }
