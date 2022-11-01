@@ -11,25 +11,19 @@
 
 body {
     background-color: rgb(232, 240, 255);
-    overflow: hidden;
-}
-
-.overlay {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
+    margin: 2vh;
 }
 
 main {
     position: relative;
-    margin: 2vh auto;
+    margin: auto;
+    min-height: 80%;
     max-width: 500px;
     background-color: white;
     padding: 30px;
     border-radius: 20px;
+    z-index: 3;
+    overflow: hidden;
 }
 
 header {
