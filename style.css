@@ -46,31 +46,36 @@ h3 {
 
 .dropdown {
     color: gray;
-    border: 1px solid gray;
-    border-radius: 100%;
-    padding: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
     text-align: right;
 }
 
-.dropdown:hover {
+.dropbutton {
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 100%;
+    background-color: transparent;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: center;
+}
+
+.dropbutton:hover {
     cursor: pointer;
     color: navy;
-    border: 1px solid navy;
+    border-color: navy;
 }
 
 .dropcontent {
     display: none;
-    border: 1px solid blue;
 }
 
-.hide {
-    border: 1px solid pink;
+.hide:hover {
+    color: navy;
 }
 
-.read {
-    border: 1px solid red;
+.read:hover {
+    color: navy;
 }
 
 .notification {
@@ -143,7 +148,7 @@ h3 {
 }
 
 .old {
-    background-color: none;
+    background-color: rgba(0,0,0,0.02);
 }
 
 .text {
