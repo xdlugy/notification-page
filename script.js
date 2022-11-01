@@ -59,7 +59,7 @@ function hide(){
         }
         setTimeout(function(){
             for(i in notification){
-                notification[i].style="translate: -120% -"+(70*i)+"px";
+                notification[i].style="translate: -100% -"+(70*i)+"px";
             }
         }, 350);
     }, 350);
