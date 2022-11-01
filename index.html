@@ -17,7 +17,13 @@
   <main>
     <header>
       <h3>Notifications<span class="value">3</span></h3>
-      <h5 class="read" onclick="read()">Mark all as read</h5>
+      <div class="dropdown" onclick="drop()">&#10005;
+        <div class="dropcontent">
+          <h5 class="hide" onclick="hide()">Hide all</h5>
+          <h5 class="read" onclick="read()">Mark all as read</h5>
+        </div>
+      </div>
+
     </header>
     <div class="notification new">
       <img src="assets/images/avatar-mark-webber.webp" class="avatar"><span class="name">Mark Webber </span>

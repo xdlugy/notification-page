@@ -29,24 +29,48 @@ header {
     margin-bottom: 20px;
 }
 
+h3 {
+    padding-bottom: 0;
+}
+
 .value {
     color: white;
     background-color:navy;
     border-radius: 7px;
-    padding: 3px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 10px;
-    font-size: 15px;
+    font-size: 16px;
+    display: inline-block;
 }
 
-h5 {
+.dropdown {
     color: gray;
+    border: 1px solid gray;
+    border-radius: 100%;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-align: right;
 }
 
-h5:hover {
+.dropdown:hover {
     cursor: pointer;
     color: navy;
+    border: 1px solid navy;
+}
+
+.dropcontent {
+    display: none;
+    border: 1px solid blue;
+}
+
+.hide {
+    border: 1px solid pink;
+}
+
+.read {
+    border: 1px solid red;
 }
 
 .notification {
@@ -56,6 +80,10 @@ h5:hover {
     border-radius: 10px;
     min-height: 50px;
     font-size: 15px;
+}
+
+.notification:hover{
+    cursor: pointer;
 }
 
 .new {
