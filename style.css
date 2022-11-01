@@ -74,12 +74,14 @@ h3 {
     display: none;
 }
 
-.hide:hover {
+.hideall:hover {
     color: navy;
+    cursor: pointer;
 }
 
-.read:hover {
+.readall:hover {
     color: navy;
+    cursor: pointer;
 }
 
 .notification {
