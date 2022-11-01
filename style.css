@@ -12,8 +12,6 @@
 body {
     margin: 2vh;
     background-color: rgba(60, 124, 233, 0.075);
-    z-index: 100;
-    position: relative;
 }
 
 main {
@@ -22,8 +20,6 @@ main {
     background-color: white;
     padding: 30px;
     border-radius: 20px;
-    z-index: 1;
-    position: relative;
 }
 
 header {
@@ -90,7 +86,7 @@ h3 {
     min-height: 50px;
     font-size: 15px;
     position: relative;
-    z-index: 0;
+    z-index: 1;
 }
 
 .notification:hover{

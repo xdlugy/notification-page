@@ -12,10 +12,9 @@ const text = document.getElementsByClassName('text');
 
 function animation(element,scale){
     element.style="transform: scale("+scale+")";
-    setTimeout(disappear,150);
-    function disappear(){
+    setTimeout(function (){
         element.style="transform: scale(0)";
-    }
+    }, 300);
 }
 
 function read(){
@@ -41,6 +40,7 @@ function hide(){
     dropbutton[0].style="color: lightgray; border: 1px solid lightgray; cursor: default";
     dropbutton[0].setAttribute("disabled","");
     dropdown[0].style="border: none";
+    animation(notivalue[0],1.1);
     setTimeout(function(){
         for(i in notification){
             if(notification[0].className=="notification old")
