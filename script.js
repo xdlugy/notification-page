@@ -10,6 +10,7 @@ const readall = document.getElementsByClassName('readall');
 const picture = document.getElementsByClassName('picture');
 const text = document.getElementsByClassName('text');
 var hidden=0;
+var dropclicked = 0;
 
 function animationhide(element,scale){
     element.style="transform: scale("+scale+")";
@@ -33,15 +34,33 @@ function read(){
 }
 
 function drop(){
+    dropclicked++;
+    if(dropclicked==1){
     dropbutton[0].style="border: none";
     dropdown[0].style="border: 1px solid gray; border-radius: 10px; padding: 5px;";
-    dropcontent[0].style="display: block";
+    dropcontent[0].style="display: block; height: 100%";
+    setTimeout(() => {
+        hideall[0].style="transform: translate(0,0)";
+        readall[0].style="transform: translate(0,0)";
+    }, 0);
+    }
+    else
+    rollup();
+}
+
+function rollup(){
+    dropclicked=0;
+    dropdown[0].style="border: none";
+    dropcontent[0].style ="height: 5px;display: none";
+    dropbutton[0].style="color: gray; border: 1px solid gray; cursor: pointer";
+    hideall[0].style="transform: translate(0,-100%)";
+    readall[0].style="transform: translate(0,-200%)";
 }
 
 function hide(){
     hidden=1;
     dropcontent[0].style="display: none";
-    dropbutton[0].style="color: lightgray; border: 1px solid lightgray; cursor: default";
+    dropbutton[0].style="pointer-events: none;color: lightgray; border: 1px solid lightgray; cursor: default";
     dropbutton[0].setAttribute("disabled","");
     dropdown[0].style="border: none";
     animationhide(notivalue[0],1.1);
@@ -74,14 +93,9 @@ function hide(){
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
-    if(!hidden){
-    if (!dropdown[0].contains(event.target)) {
-        dropdown[0].style="border: none";
-      dropcontent[0].style ="display: none";
-      dropbutton[0].style="color: gray; border: 1px solid gray; cursor: pointer";
-    }
-
-    }
+    if(!hidden)
+    if (!dropdown[0].contains(event.target))
+        rollup();
   });
 
 /*

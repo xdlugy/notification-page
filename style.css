@@ -29,7 +29,7 @@ main {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
 
@@ -56,11 +56,12 @@ h3 {
 .dropbutton {
     color: gray;
     border: 1px solid gray;
+    font-weight: bold;
     border-radius: 100%;
     background-color: transparent;
-    padding: 3px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-align: center;
 }
 
@@ -68,18 +69,34 @@ h3 {
     cursor: pointer;
     color: navy;
     border-color: navy;
+    transform: scale(1.1);
 }
 
 .dropcontent {
+    height: 5px;
     display: none;
 }
 
+.hideall {
+    padding: 2px;
+    transform: translate(0, -100%);
+}
+
+.readall {
+    padding: 2px;
+    transform: translate(0, -200%);
+}
+
 .hideall:hover {
+    font-size: 15px;
+    padding: 5px;
     color: navy;
     cursor: pointer;
 }
 
 .readall:hover {
+    font-size: 15px;
+    padding: 5px;
     color: navy;
     cursor: pointer;
 }
@@ -90,7 +107,7 @@ h3 {
     color: #5a606b;
     border-radius: 10px;
     min-height: 50px;
-    font-size: 15px;
+    font-size: 14px;
     position: relative;
     z-index: 0;
 }
@@ -123,7 +140,7 @@ h3 {
 
 .name:hover {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .content {
