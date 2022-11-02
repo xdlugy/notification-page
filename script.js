@@ -11,6 +11,7 @@ const picture = document.getElementsByClassName('picture');
 const text = document.getElementsByClassName('text');
 var hidden=0;
 var dropclicked = 0;
+var readnotifications = 0;
 
 function animationhide(element,scale){
     element.style="transform: scale("+scale+")";
@@ -29,7 +30,13 @@ function read(){
     for(let i=0; i<3; i++)
         animationhide(dot[i],1.3);
     animationhide(notivalue[0],1.1);
-        readall[0].style="opacity: 0; display: none";
+        readall[0].style="opacity: 0;";
+        setTimeout(() => {
+            readall[0].style="transform: scale(0)";
+            readall[0].style="display: none";
+        }, 300);
+        
+        readnotifications = 1;
     }
 }
 
@@ -39,8 +46,11 @@ function drop(){
     dropbutton[0].style="border: none";
     dropdown[0].style="border: 1px solid gray; border-radius: 10px; padding: 5px;";
     dropcontent[0].style="display: block; height: 100%";
+    if(readnotifications)
+        readall[0].style="display: none";
     setTimeout(() => {
         hideall[0].style="transform: translate(0,0)";
+        if(!readnotifications)
         readall[0].style="transform: translate(0,0)";
     }, 0);
     }
@@ -59,10 +69,21 @@ function rollup(){
 
 function hide(){
     hidden=1;
-    dropcontent[0].style="display: none";
+    hideall[0].style="opacity :0";
+    readall[0].style="opacity: 0";
+    setTimeout(() => {
+        hideall[0].style="transform: scale(0)";
+        hideall[0].style="display: none";
+        readall[0].style="transform: scale(0)";
+        readall[0].style="display: none";
+    }, 300);
+    setTimeout(() => {
+        dropcontent[0].style="display: none";
     dropbutton[0].style="pointer-events: none;color: lightgray; border: 1px solid lightgray; cursor: default";
     dropbutton[0].setAttribute("disabled","");
     dropdown[0].style="border: none";
+    }, 300);
+    
     animationhide(notivalue[0],1.1);
     setTimeout(function(){
         for(i in notification){
