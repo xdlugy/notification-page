@@ -25,17 +25,40 @@ function add(){
     };
 
     const newdiv = document.createElement("div");
-    const inner = document.createTextNode(notification.name);
-    newdiv.appendChild(inner);
-    const main = document.getElementsByTagName("main")[0];
-    main.appendChild(newdiv);
-
+    let avatar = document.createElement("img");
+    avatar.className="avatar";
+    let inner = notification.img;
+    avatar.src=inner;
+    newdiv.appendChild(avatar);
+    let span = document.createElement("span");
+    span.className="name";
+    inner = document.createTextNode(notification.name);
+    span.appendChild(inner);
+    newdiv.appendChild(span);
+    span = document.createElement("span");
+    span.className="action";
+    inner = document.createTextNode(notification.action);
+    span.appendChild(inner);
+    newdiv.appendChild(span);
+    span = document.createElement("span");
+    span.className="content";
+    inner = document.createTextNode(notification.content);
+    span.appendChild(inner);
+    newdiv.appendChild(span);
+    span = document.createElement("span");
+    span.className="time";
+    inner = document.createTextNode(notification.time);
+    span.appendChild(inner);
+    newdiv.appendChild(span);
 
     if(notification.new)
     newdiv.className="notification new";
     else
     newdiv.className="notification old";
-    
+
+    const main = document.getElementsByTagName("main")[0];
+    main.appendChild(newdiv);
+
     return false;
 }
 
