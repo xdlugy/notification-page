@@ -14,10 +14,17 @@ body {
     margin: 2vh;
 }
 
+form {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
 main {
     position: relative;
     margin: auto;
-    min-height: 80%;
+    min-height: 90%;
     max-width: 500px;
     background-color: white;
     padding: 30px;

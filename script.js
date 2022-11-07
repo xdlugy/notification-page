@@ -1,7 +1,7 @@
 const newnot = document.getElementsByClassName('notification new');
 const dot = document.getElementsByClassName('dot');
 const notivalue = document.getElementsByClassName('value');
-const notification = document.getElementsByClassName('notification');
+const notifications = document.getElementsByClassName('notification');
 const dropdown = document.getElementsByClassName('dropdown');
 const dropbutton = document.getElementsByClassName('dropbutton');
 const dropcontent = document.getElementsByClassName('dropcontent');
@@ -12,6 +12,32 @@ const text = document.getElementsByClassName('text');
 var hidden=0;
 var dropclicked = 0;
 var readnotifications = 0;
+
+function add(){
+
+    const notification = {
+        img: document.getElementById("avatar").value,
+        name: document.getElementById("name").value,
+        action: document.getElementById("action").value,
+        content: document.getElementById("content").value,
+        time: document.getElementById("time").value,
+        new: document.getElementById("new").checked
+    };
+
+    const newdiv = document.createElement("div");
+    const inner = document.createTextNode(notification.name);
+    newdiv.appendChild(inner);
+    const main = document.getElementsByTagName("main")[0];
+    main.appendChild(newdiv);
+
+
+    if(notification.new)
+    newdiv.className="notification new";
+    else
+    newdiv.className="notification old";
+    
+    return false;
+}
 
 function animationhide(element,scale){
     element.style="transform: scale("+scale+")";
@@ -69,7 +95,8 @@ function rollup(){
 
 function hide(){
     hidden=1;
-    hideall[0].style="opacity :0";
+    hideall[0].style="opacity: 0";
+    if(!readnotifications)
     readall[0].style="opacity: 0";
     setTimeout(() => {
         hideall[0].style="transform: scale(0)";
@@ -86,30 +113,30 @@ function hide(){
     
     animationhide(notivalue[0],1.1);
     setTimeout(function(){
-        for(i in notification){
-            if(notification[0].className=="notification old")
-            notification[0].style="z-index: 10;background-color: rgba(136, 136, 136,1);";
+        for(i in notifications){
+            if(notifications[0].className=="notification old")
+            notifications[0].style="z-index: 10;background-color: rgba(136, 136, 136,1);";
             else
-            notification[0].style="z-index: 10;background-color: rgba(100, 170, 255,1);";
+            notifications[0].style="z-index: 10;background-color: rgba(100, 170, 255,1);";
             for(j in picture)
                 picture[j].style="display: none";
             for(j in text)
                 text[j].style="display: none";
             if(i>0){
-                for(j in notification[i].children)
-                notification[i].children[j].style="display: none";
+                for(j in notifications[i].children)
+                notifications[i].children[j].style="display: none";
             }
-            notification[i].style="translate: 0 -"+(70*i)+"px";
+            notifications[i].style="translate: 0 -"+(70*i)+"px";
         }
         setTimeout(function(){
-            for(i in notification){
-                notification[i].style="translate: -120% -"+(70*i)+"px";
+            for(i in notifications){
+                notifications[i].style="translate: -120% -"+(70*i)+"px";
             }
         }, 350);
     }, 350);
     setTimeout(function(){
-        for(i in notification)
-            notification[i].style="display: none";
+        for(i in notifications)
+            notifications[i].style="display: none";
     },1400);
 }
 
@@ -119,9 +146,10 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
         rollup();
   });
 
+  
 /*
 const move = e => {
-    notification[0].style="transform: translateX(-"+e.offsetX+"px)";
+    notifications[0].style="transform: translateX(-"+e.offsetX+"px)";
 }
 
 notification.addEventListener("mousedown",move);
