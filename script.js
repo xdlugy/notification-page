@@ -32,29 +32,36 @@ function add(){
     newdiv.appendChild(avatar);
     let span = document.createElement("span");
     span.className="name";
-    inner = document.createTextNode(notification.name);
+    inner = document.createTextNode(notification.name+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     span = document.createElement("span");
     span.className="action";
-    inner = document.createTextNode(notification.action);
+    inner = document.createTextNode(notification.action+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     span = document.createElement("span");
     span.className="content";
-    inner = document.createTextNode(notification.content);
+    inner = document.createTextNode(notification.content+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
+    if(notification.new){
+        newdiv.className="notification new";
+        span = document.createElement("span");
+        span.className="dot";
+        newdiv.appendChild(span);
+        }
+        else
+        newdiv.className="notification old";
+    let newline = document.createElement("br");
+    newdiv.appendChild(newline);
     span = document.createElement("span");
     span.className="time";
-    inner = document.createTextNode(notification.time);
+    inner = document.createTextNode(notification.time+"m ago");
     span.appendChild(inner);
     newdiv.appendChild(span);
 
-    if(notification.new)
-    newdiv.className="notification new";
-    else
-    newdiv.className="notification old";
+    
 
     const main = document.getElementsByTagName("main")[0];
     main.appendChild(newdiv);
