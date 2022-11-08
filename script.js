@@ -17,14 +17,10 @@ window.onload=function(){
     if(newnot.length>0){
         notivalue[0].innerHTML=newnot.length;
         notivalue[0].style="transform: scale(1)";
-        hideall[0].style="display: none";
-        dropdown[0].style="border: none";
-        dropcontent[0].style ="height: 5px;display: none";
-        dropbutton[0].style="color: gray; border: 1px solid gray; cursor: pointer";
-        readall[0].style="display: block";
+        readnotifications = 0;
     }
-    else
-        hidelall[0].style="display: block; opacity: 1";
+        else
+        hideall[0].style="display: block; opacity: 1";
 }
 
 function add(){
@@ -33,6 +29,9 @@ function add(){
         name: document.getElementById("name").value,
         action: document.getElementById("action").value,
         content: document.getElementById("content").value,
+        app: document.getElementById("app").value,
+        textbox: document.getElementById("textbox").value,
+        picture: document.getElementById("picture").value,
         new: document.getElementById("new").checked
     };
 
@@ -42,6 +41,11 @@ function add(){
     let inner = notification.img;
     avatar.src=inner;
     newdiv.appendChild(avatar);
+    let picture = document.createElement("img");
+    picture.className="picture";
+    inner = notification.picture;
+    picture.src=inner;
+    newdiv.appendChild(picture);
     let span = document.createElement("span");
     span.className="name";
     inner = document.createTextNode(notification.name+" ");
@@ -55,6 +59,11 @@ function add(){
     span = document.createElement("span");
     span.className="content";
     inner = document.createTextNode(notification.content+" ");
+    span.appendChild(inner);
+    newdiv.appendChild(span);
+    span = document.createElement("span");
+    span.className="app";
+    inner = document.createTextNode(notification.app+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     if(notification.new){
@@ -73,21 +82,29 @@ function add(){
     span.appendChild(inner);
     newdiv.appendChild(span);
     let div = document.createElement("div");
-
+    div.className="text";
+    inner = document.createTextNode(notification.textbox);
+    div.appendChild(inner);
+    newdiv.appendChild(div);
     
 
     const main = document.getElementsByTagName("main")[0];
     main.appendChild(newdiv);
 
+    dropbutton[0].style="color: gray; border: 1px solid gray; cursor: pointer; pointer-events: auto";
+    dropbutton[0].setAttribute("enabled","");
+    dropbutton[0].removeAttribute("disabled");
+    hidden=0;
+    readnotifications=1;
+    
+
     if(newnot.length>0){
         notivalue[0].innerHTML=newnot.length;
         notivalue[0].style="transform: scale(1)";
+        readnotifications = 0;
     }
-    if(newnot.length<2)
-        hideall[0].style="display: none";
         else
-        hidelall[0].style="display: block; opacity: 1";
-
+        hideall[0].style="display: block; opacity: 1";
     return false;
 }
 
@@ -189,8 +206,10 @@ function hide(){
         }, 350);
     }, 350);
     setTimeout(function(){
-        for(i in notifications)
-            notifications[i].style="display: none";
+        let length=notifications.length;
+        for(let i=0; i<length; i++){
+            notifications[0].remove();
+        }
     },1400);
 }
 
