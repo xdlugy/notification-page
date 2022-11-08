@@ -13,7 +13,27 @@ var hidden=0;
 var dropclicked = 0;
 var readnotifications = 0;
 
+var uploadedavatar="";
+var uploadedpicture="";
 window.onload=function(){
+  const imageavatar = document.getElementById("avatar");
+  imageavatar.addEventListener("change", function(){
+      console.log(imageavatar.value);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+          uploadedavatar = reader.result;
+      })
+      reader.readAsDataURL(this.files[0]);
+  })
+  const imagepicture = document.getElementById("picture");
+  imagepicture.addEventListener("change", function(){
+      console.log(imagepicture.value);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+          uploadedpicture = reader.result;
+      })
+      reader.readAsDataURL(this.files[0]);
+  })
     if(newnot.length>0){
         notivalue[0].innerHTML=newnot.length;
         notivalue[0].style="transform: scale(1)";
@@ -35,19 +55,18 @@ function add(){
         picture: document.getElementById("picture").value,
         new: document.getElementById("new").checked
     };
-
+    
     const newdiv = document.createElement("div");
     let avatar = document.createElement("img");
+    avatar.src=uploadedavatar;
     avatar.className="avatar";
-    let inner = notification.img;
-    avatar.src=inner;
     newdiv.appendChild(avatar);
+
     if(notification.picture!=""){
         console.log(notification.picture);
     let picture = document.createElement("img");
     picture.className="picture";
-    inner = notification.picture;
-    picture.src=inner;
+    picture.src=uploadedpicture;
     newdiv.appendChild(picture);
     }
     let span = document.createElement("span");
