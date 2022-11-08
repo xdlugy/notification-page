@@ -20,7 +20,8 @@ window.onload=function(){
         readnotifications = 0;
     }
         else
-        hideall[0].style="display: block; opacity: 1";
+        if(notifications.length<=0)
+            hide();
 }
 
 function add(){
@@ -41,11 +42,14 @@ function add(){
     let inner = notification.img;
     avatar.src=inner;
     newdiv.appendChild(avatar);
+    if(notification.picture!=""){
+        console.log(notification.picture);
     let picture = document.createElement("img");
     picture.className="picture";
     inner = notification.picture;
     picture.src=inner;
     newdiv.appendChild(picture);
+    }
     let span = document.createElement("span");
     span.className="name";
     inner = document.createTextNode(notification.name+" ");
@@ -81,11 +85,13 @@ function add(){
     inner = document.createTextNode("1m ago");
     span.appendChild(inner);
     newdiv.appendChild(span);
+    if(notification.textbox!=""){
     let div = document.createElement("div");
     div.className="text";
     inner = document.createTextNode(notification.textbox);
     div.appendChild(inner);
     newdiv.appendChild(div);
+    }
     
 
     const main = document.getElementsByTagName("main")[0];
