@@ -13,14 +13,26 @@ var hidden=0;
 var dropclicked = 0;
 var readnotifications = 0;
 
-function add(){
+window.onload=function(){
+    if(newnot.length>0){
+        notivalue[0].innerHTML=newnot.length;
+        notivalue[0].style="transform: scale(1)";
+        hideall[0].style="display: none";
+        dropdown[0].style="border: none";
+        dropcontent[0].style ="height: 5px;display: none";
+        dropbutton[0].style="color: gray; border: 1px solid gray; cursor: pointer";
+        readall[0].style="display: block";
+    }
+    else
+        hidelall[0].style="display: block; opacity: 1";
+}
 
+function add(){
     const notification = {
         img: document.getElementById("avatar").value,
         name: document.getElementById("name").value,
         action: document.getElementById("action").value,
         content: document.getElementById("content").value,
-        time: document.getElementById("time").value,
         new: document.getElementById("new").checked
     };
 
@@ -57,14 +69,24 @@ function add(){
     newdiv.appendChild(newline);
     span = document.createElement("span");
     span.className="time";
-    inner = document.createTextNode(notification.time+"m ago");
+    inner = document.createTextNode("1m ago");
     span.appendChild(inner);
     newdiv.appendChild(span);
+    let div = document.createElement("div");
 
     
 
     const main = document.getElementsByTagName("main")[0];
     main.appendChild(newdiv);
+
+    if(newnot.length>0){
+        notivalue[0].innerHTML=newnot.length;
+        notivalue[0].style="transform: scale(1)";
+    }
+    if(newnot.length<2)
+        hideall[0].style="display: none";
+        else
+        hidelall[0].style="display: block; opacity: 1";
 
     return false;
 }
@@ -80,10 +102,12 @@ function animationhide(element,scale){
 }
 
 function read(){
+    let newnotlength=newnot.length;
     if(newnot.length>0){
-    for(let i=0; i<3; i++)
-        newnot[0].className='notification old';
-    for(let i=0; i<3; i++)
+    for(let i=0; i<newnotlength; i++){
+        newnot[0].className="notification old";
+    }
+    for(let i=0; i<dot.length; i++)
         animationhide(dot[i],1.3);
     animationhide(notivalue[0],1.1);
         readall[0].style="opacity: 0;";
@@ -175,12 +199,3 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
     if (!dropdown[0].contains(event.target))
         rollup();
   });
-
-  
-/*
-const move = e => {
-    notifications[0].style="transform: translateX(-"+e.offsetX+"px)";
-}
-
-notification.addEventListener("mousedown",move);
-*/

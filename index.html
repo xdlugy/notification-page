@@ -14,19 +14,9 @@
   </style>
 </head>
 <body>
-  <form>
-    <label for="avatar">Avatar</label><input type="file" id="avatar" name="avatar"><br>
-    <label for="name">Name</label><input type="text" id="name" name="name"><br>
-    <label for="action">Action</label><input type="text" id="action" name="action"><br>
-    <label for="content">Content</label><input type="text" id="content" name="content"><br>
-    <label for="new">New notification?</label><input type="checkbox" id="new" name="new"><br>
-    <label for="time">Time</label><input type="number" id="time" name="time"><br>
-    <button type="button" onclick="add()">Add</button>
-    <button type="reset">Reset</button>
-  </form>
   <main>
     <header>
-      <h3>Notifications<span class="value">3</span></h3>
+      <h3>Notifications<span class="value"></span></h3>
       <div class="dropdown">
       <button class="dropbutton" onclick="drop()">&#10005;</button>
         <div class="dropcontent">
@@ -36,7 +26,7 @@
       </div>
     </header>
 
-    <!--
+    
       <div class="notification new">
       <img src="assets/images/avatar-mark-webber.webp" class="avatar"><span class="name">Mark Webber </span>
       <span class="action"> reacted to your recent post </span>
@@ -93,8 +83,19 @@
   <span class="app">Chess Club</span><br>
   <span class="time">2 weeks ago</span>
 </div>
--->
 </main>
+<form>
+  <label for="avatar">Avatar</label><input type="file" id="avatar" name="avatar"><br>
+  <label for="name">Name</label><input type="text" id="name" name="name"><br>
+  <label for="action">Action</label><input type="text" id="action" name="action"><br>
+  <label for="content">Content</label><input type="text" id="content" name="content"><br>
+  <label for="app">App name</label><input type="text" id="app" name="app"><br>
+  <label for="textbox">Textbox</label><textarea id="textbox" name="textbox"></textarea><br>
+  <label for="picture">Picture</label><input type="file" id="picture" name="picture"><br>
+  <label for="new">New notification?</label><input type="checkbox" id="new" name="new"><br>
+  <button type="button" onclick="add()">Add</button>
+  <button type="reset">Reset</button>
+</form>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
