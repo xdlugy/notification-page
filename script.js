@@ -107,22 +107,23 @@ function add(){
         var elapsed = now-created;
         if(elapsed > 60000)
             {
-                var min = elapsed/60000;
+                var min = Math.round(elapsed/60000);
                 if(min<60)
                     inner=document.createTextNode(min+" minutes ago");
                 else
                 {
-                    var hour = min/60;
+                    var hour = Math.round(min/60);
                     if(hour<24)
                     inner=document.createTextNode(hour+" hours ago");
                     else{
-                    var day = hour/24;
+                    var day = Math.round(hour/24);
                     inner=document.createTextNode(day + "days ago");
                     }
                 }
             }
+            span.innerHTML="";
             span.appendChild(inner);
-    }, 6000);
+    }, 60000);
     newdiv.appendChild(span);
     if(textbox!=""){
     let div = document.createElement("div");
