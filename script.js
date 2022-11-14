@@ -45,16 +45,14 @@ window.onload=function(){
 }
 
 function add(){
-    const notification = {
-        img: document.getElementById("avatar").value,
-        name: document.getElementById("name").value,
-        action: document.getElementById("action").value,
-        content: document.getElementById("content").value,
-        app: document.getElementById("app").value,
-        textbox: document.getElementById("textbox").value,
-        picture: document.getElementById("picture").value,
-        new: document.getElementById("new").checked
-    };
+        const img = document.getElementById("avatar").value;
+        const name = document.getElementById("name").value;
+        const action = document.getElementById("action").value;
+        const content = document.getElementById("content").value;
+        const app = document.getElementById("app").value;
+        const textbox = document.getElementById("textbox").value;
+        const picture = document.getElementById("picture").value;
+        const checked = document.getElementById("new").checked;
     
     const newdiv = document.createElement("div");
     let avatar = document.createElement("img");
@@ -62,34 +60,34 @@ function add(){
     avatar.className="avatar";
     newdiv.appendChild(avatar);
 
-    if(notification.picture!=""){
-        console.log(notification.picture);
-    let picture = document.createElement("img");
-    picture.className="picture";
-    picture.src=uploadedpicture;
-    newdiv.appendChild(picture);
+    if(picture!=""){
+        console.log( picture);
+    let pictureimg = document.createElement("img");
+    pictureimg.className="picture";
+    pictureimg.src=uploadedpicture;
+    newdiv.appendChild(pictureimg);
     }
     let span = document.createElement("span");
     span.className="name";
-    inner = document.createTextNode(notification.name+" ");
+    inner = document.createTextNode( name+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     span = document.createElement("span");
     span.className="action";
-    inner = document.createTextNode(notification.action+" ");
+    inner = document.createTextNode( action+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     span = document.createElement("span");
     span.className="content";
-    inner = document.createTextNode(notification.content+" ");
+    inner = document.createTextNode( content+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
     span = document.createElement("span");
     span.className="app";
-    inner = document.createTextNode(notification.app+" ");
+    inner = document.createTextNode( app+" ");
     span.appendChild(inner);
     newdiv.appendChild(span);
-    if(notification.new){
+    if(checked){
         newdiv.className="notification new";
         span = document.createElement("span");
         span.className="dot";
@@ -101,13 +99,35 @@ function add(){
     newdiv.appendChild(newline);
     span = document.createElement("span");
     span.className="time";
-    inner = document.createTextNode("1m ago");
+    inner = document.createTextNode("Now");
     span.appendChild(inner);
+    var created = new Date();
+    setInterval(() => {
+        var now = new Date();
+        var elapsed = now-created;
+        if(elapsed > 60000)
+            {
+                var min = elapsed/60000;
+                if(min<60)
+                    inner=document.createTextNode(min+" minutes ago");
+                else
+                {
+                    var hour = min/60;
+                    if(hour<24)
+                    inner=document.createTextNode(hour+" hours ago");
+                    else{
+                    var day = hour/24;
+                    inner=document.createTextNode(day + "days ago");
+                    }
+                }
+            }
+            span.appendChild(inner);
+    }, 6000);
     newdiv.appendChild(span);
-    if(notification.textbox!=""){
+    if(textbox!=""){
     let div = document.createElement("div");
     div.className="text";
-    inner = document.createTextNode(notification.textbox);
+    inner = document.createTextNode( textbox);
     div.appendChild(inner);
     newdiv.appendChild(div);
     }
