@@ -124,10 +124,13 @@ h3 {
 
 .avatar {
     height: 50px;
-    width: auto;
+    width: 50px;
     float: left;
     margin-right: 10px;
     padding-bottom: 10px;
+    overflow: hidden;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .avatar:hover {
@@ -197,6 +200,8 @@ h3 {
     width: 50px;
     height: 50px;
     margin-left: 20px;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .picture:hover {
