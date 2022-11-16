@@ -15,7 +15,21 @@ var readnotifications = 0;
 
 var uploadedavatar="";
 var uploadedpicture="";
+
 window.onload=function(){
+    if(localStorage.length>0){
+        let main = document.querySelector('main');
+        let end=notifications.length;
+        for(let i=0; i<end; i++){
+            notifications[0].remove();
+        }
+        end = localStorage.length;
+        for(let i=0; i<end; i++){
+            main.insertAdjacentHTML('beforeend',localStorage.getItem('notification'+i));
+        }
+    }
+        
+
   const imageavatar = document.getElementById("avatar");
   imageavatar.addEventListener("change", function(){
       console.log(imageavatar.value);
@@ -151,6 +165,11 @@ function add(){
     }
         else
         hideall[0].style="display: block; opacity: 1";
+
+        let end=notifications.length;
+        for(let i=0; i<end; i++)
+            localStorage.setItem('notification'+i,notifications[i].outerHTML);
+
     return false;
 }
 
@@ -165,12 +184,14 @@ function animationhide(element,scale){
 }
 
 function read(){
-    let newnotlength=newnot.length;
+    
     if(newnot.length>0){
-    for(let i=0; i<newnotlength; i++){
-        newnot[0].className="notification old";
-    }
-    for(let i=0; i<dot.length; i++)
+        let end=newnot.length;
+        for(let i=0; i<end; i++){
+            newnot[0].className="notification old";
+        }
+    end = dot.length;
+    for(let i=0; i<end; i++)
         animationhide(dot[i],1.3);
     animationhide(notivalue[0],1.1);
         readall[0].style="opacity: 0;";
@@ -181,6 +202,10 @@ function read(){
         
         readnotifications = 1;
     }
+
+    end=localStorage.length;
+    for(let i=0; i<end; i++)
+        localStorage.setItem('notification'+i,notifications[i].outerHTML);
 }
 
 function drop(){
@@ -252,11 +277,23 @@ function hide(){
         }, 350);
     }, 350);
     setTimeout(function(){
-        let length=notifications.length;
-        for(let i=0; i<length; i++){
+        let end=notifications.length;
+        for(let i=0; i<end; i++){
             notifications[0].remove();
         }
     },1400);
+
+    let end=localStorage.length;
+    for(let i=0; i<end; i++)
+        localStorage.removeItem('notification'+i);
+
+}
+
+function deletelocal(){
+    let end=localStorage.length;
+    for(let i=0; i<end; i++)
+        localStorage.removeItem('notification'+i);
+    window.location.reload();
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
