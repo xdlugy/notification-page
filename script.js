@@ -18,6 +18,8 @@ var uploadedpicture="";
 
 window.onload=function(){
 
+    document.body.style="display: block";
+
     if(newnot.length)
         readall[0].style="display: none";
 
