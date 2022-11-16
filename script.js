@@ -17,13 +17,17 @@ var uploadedavatar="";
 var uploadedpicture="";
 
 window.onload=function(){
+
+    if(newnot.length)
+        readall[0].style="display: none";
+
     if(localStorage.length>0){
         let main = document.querySelector('main');
         let end=notifications.length;
         for(let i=0; i<end; i++){
             notifications[0].remove();
         }
-        end = localStorage.length;
+        end = localStorage.length-1;
         for(let i=0; i<end; i++){
             main.insertAdjacentHTML('beforeend',localStorage.getItem('notification'+i));
         }
@@ -166,6 +170,7 @@ function add(){
         else
         hideall[0].style="display: block; opacity: 1";
 
+        localStorage.setItem('hidden',0);
         let end=notifications.length;
         for(let i=0; i<end; i++)
             localStorage.setItem('notification'+i,notifications[i].outerHTML);
@@ -191,8 +196,10 @@ function read(){
             newnot[0].className="notification old";
         }
     end = dot.length;
-    for(let i=0; i<end; i++)
-        animationhide(dot[i],1.3);
+    for(let i=0; i<end; i++){
+        animationhide(dot[0],1.3);
+        dot[0].remove();
+    }
     animationhide(notivalue[0],1.1);
         readall[0].style="opacity: 0;";
         setTimeout(() => {
@@ -203,7 +210,8 @@ function read(){
         readnotifications = 1;
     }
 
-    end=localStorage.length;
+    
+    end=notifications.length;
     for(let i=0; i<end; i++)
         localStorage.setItem('notification'+i,notifications[i].outerHTML);
 }
@@ -214,13 +222,13 @@ function drop(){
     dropbutton[0].style="border: none";
     dropdown[0].style="border: 1px solid gray; border-radius: 10px; padding: 5px;";
     dropcontent[0].style="display: block; height: 100%";
-    if(readnotifications)
+    if(newnot.length==0)
         readall[0].style="display: none";
-    setTimeout(() => {
-        hideall[0].style="transform: translate(0,0)";
-        if(!readnotifications)
-        readall[0].style="transform: translate(0,0)";
-    }, 0);
+            setTimeout(() => {
+                hideall[0].style="transform: translate(0,0)";
+                if(!newnot.length==0)
+                readall[0].style="transform: translate(0,0)";
+            }, 0);
     }
     else
     rollup();
@@ -255,7 +263,8 @@ function hide(){
     
     animationhide(notivalue[0],1.1);
     setTimeout(function(){
-        for(i in notifications){
+        let end = notifications.length;
+        for(let i=0; i<end; i++){
             if(notifications[0].className=="notification old")
             notifications[0].style="z-index: 10;background-color: rgba(136, 136, 136,1);";
             else
@@ -274,16 +283,17 @@ function hide(){
             for(i in notifications){
                 notifications[i].style="translate: -120% -"+(70*i)+"px";
             }
-        }, 350);
-    }, 350);
+        }, 300);
+    }, 300);
     setTimeout(function(){
         let end=notifications.length;
         for(let i=0; i<end; i++){
             notifications[0].remove();
         }
-    },1400);
+    },900);
 
-    let end=localStorage.length;
+    localStorage.setItem('hidden',1);
+    let end=localStorage.length-1;
     for(let i=0; i<end; i++)
         localStorage.removeItem('notification'+i);
 
@@ -292,7 +302,7 @@ function hide(){
 function deletelocal(){
     let end=localStorage.length;
     for(let i=0; i<end; i++)
-        localStorage.removeItem('notification'+i);
+        localStorage.clear();
     window.location.reload();
 }
 
