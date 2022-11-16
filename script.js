@@ -17,8 +17,10 @@ var uploadedavatar="";
 var uploadedpicture="";
 
 window.onload=function(){
-
-    document.body.style="display: block";
+    setTimeout(() => {
+        document.body.style="display: block";
+    }, 50);
+    
     console.log(document.body.style);
 
     if(newnot.length)
