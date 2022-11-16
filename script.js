@@ -19,6 +19,7 @@ var uploadedpicture="";
 window.onload=function(){
 
     document.body.style="display: block";
+    console.log(document.body.style);
 
     if(newnot.length)
         readall[0].style="display: none";
