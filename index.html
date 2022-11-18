@@ -1,4 +1,4 @@
-<!DOCTYPE Notificationshtml>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,8 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body style="display: none">
+<body onload="document.body.style.visibility='visible'">
+  <script>document.body.style.visibility='hidden'</script>
   <main>
     <header>
       <h3>Notifications<span class="value"></span></h3>
