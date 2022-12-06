@@ -17,9 +17,6 @@ var uploadedavatar="";
 var uploadedpicture="";
 
 window.onload=function(){
-    
-    console.log(document.body.style);
-
     if(newnot.length)
         readall[0].style="display: none";
 
@@ -38,7 +35,6 @@ window.onload=function(){
 
   const imageavatar = document.getElementById("avatar");
   imageavatar.addEventListener("change", function(){
-      console.log(imageavatar.value);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
           uploadedavatar = reader.result;
@@ -47,7 +43,6 @@ window.onload=function(){
   })
   const imagepicture = document.getElementById("picture");
   imagepicture.addEventListener("change", function(){
-      console.log(imagepicture.value);
       const reader = new FileReader();
       reader.addEventListener("load", () => {
           uploadedpicture = reader.result;
@@ -65,23 +60,31 @@ window.onload=function(){
 }
 
 function add(){
-        const img = document.getElementById("avatar").value;
-        const name = document.getElementById("name").value;
-        const action = document.getElementById("action").value;
-        const content = document.getElementById("content").value;
-        const app = document.getElementById("app").value;
-        const textbox = document.getElementById("textbox").value;
-        const picture = document.getElementById("picture").value;
-        const checked = document.getElementById("new").checked;
+        var name = document.getElementById("name").value;
+        if(name=="")
+            name="Name";
+        var action = document.getElementById("action").value;
+        if(action=="")
+            action="Action";
+        var content = document.getElementById("content").value;
+        if(content=="")
+            content="Content";
+        var app = document.getElementById("app").value;
+        if(app=="")
+            app="App name";
+        var textbox = document.getElementById("textbox").value;
+        var checked = document.getElementById("new").checked;
     
     const newdiv = document.createElement("div");
     let avatar = document.createElement("img");
-    avatar.src=uploadedavatar;
+    if(uploadedavatar!="")
+        avatar.src=uploadedavatar;
+        else
+        avatar.src="assets/images/white.png";
     avatar.className="avatar";
     newdiv.appendChild(avatar);
 
-    if(picture!=""){
-        console.log( picture);
+    if(uploadedpicture!=""){
     let pictureimg = document.createElement("img");
     pictureimg.className="picture";
     pictureimg.src=uploadedpicture;
@@ -170,12 +173,16 @@ function add(){
         readnotifications = 0;
     }
         else
-        hideall[0].style="display: block; opacity: 1";
+            hideall[0].style="display: block; opacity: 1";
 
-        localStorage.setItem('hidden',0);
-        let end=notifications.length;
-        for(let i=0; i<end; i++)
-            localStorage.setItem('notification'+i,notifications[i].outerHTML);
+    localStorage.setItem('hidden',0);
+    let end=notifications.length;
+    for(let i=0; i<end; i++)
+       localStorage.setItem('notification'+i,notifications[i].outerHTML);
+
+    
+    console.log(notifications[notifications.length-1]);
+    animationshow(notifications[notifications.length-1]);
 
     return false;
 }
@@ -188,6 +195,16 @@ function animationhide(element,scale){
     setTimeout(function (){
         element.innerHTML="";
     },600)
+}
+
+function animationshow(element){
+    element.style="transform: scale(0)";
+    setTimeout(function (){
+        element.style="transform: scale(1.1)";
+    }, 100);
+    setTimeout(function (){
+        element.style="transform: scale(1.0)";
+    }, 400);
 }
 
 function read(){
