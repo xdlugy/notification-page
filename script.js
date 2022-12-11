@@ -115,6 +115,7 @@ function add(){
         span = document.createElement("span");
         span.className="dot";
         newdiv.appendChild(span);
+        animationshow(notivalue[0]);
         }
         else
         newdiv.className="notification old";
@@ -323,6 +324,13 @@ function deletelocal(){
     for(let i=0; i<end; i++)
         localStorage.clear();
     window.location.reload();
+}
+
+function openmodal(){
+    const modal = document.getElementById("modal");
+    const main = document.getElementsByTagName("main")[0];
+    modal.style.display="block";
+    main.style="filter: brightness(0.5)";
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
