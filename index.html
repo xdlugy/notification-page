@@ -85,22 +85,24 @@
 </div>
 </main>
 
-<button type="button" onclick="openmodal()" id="openmodal">Add notification</button>
+<button type="button" onclick="openmodal()">Add notification</button>
 
 <div id="modal">
-  <form>
-    <label for="avatar">Avatar</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar"><br>
-    <input type="text" id="name" name="name" placeholder="Name"><br>
-    <input type="text" id="action" name="action" placeholder="Action"><br>
-    <input type="text" id="content" name="content"  placeholder="Content"><br>
-    <input type="text" id="app" name="app"  placeholder="App name"><br>
-    <textarea id="textbox" name="textbox" placeholder="Textbox"></textarea><br>
-    <label for="picture">Picture</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture"><br>
-    <label for="new">New notification?</label><input type="checkbox" id="new" name="new"><br>
-    <button type="button" onclick="add()">Add</button>
-    <button type="reset">Reset</button>
-  </form>
-  <button type="button" onclick="deletelocal()">Delete local storage (clear notifications)</button>
+  <div id="modalcontent">
+    <form>
+      <label for="avatar">Avatar</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar"><br>
+      <input type="text" id="name" name="name" placeholder="Name"><br>
+      <input type="text" id="action" name="action" placeholder="Action"><br>
+      <input type="text" id="content" name="content"  placeholder="Content"><br>
+      <input type="text" id="app" name="app"  placeholder="App name"><br>
+      <textarea id="textbox" name="textbox" placeholder="Textbox"></textarea><br>
+      <label for="picture">Picture</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture"><br>
+      <label for="new">New notification?</label><input type="checkbox" id="new" name="new"><br>
+      <button type="button" onclick="add()">Add</button>
+      <button type="reset">Reset</button>
+      <button type="button" onclick="deletelocal()">Delete local storage (clear notifications)</button>
+    </form>
+  </div>
 </div>
 
   <div class="attribution">

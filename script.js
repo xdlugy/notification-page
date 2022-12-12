@@ -12,6 +12,7 @@ const text = document.getElementsByClassName('text');
 var hidden=0;
 var dropclicked = 0;
 var readnotifications = 0;
+var modalclick = 0;
 
 var uploadedavatar="";
 var uploadedpicture="";
@@ -182,8 +183,10 @@ function add(){
        localStorage.setItem('notification'+i,notifications[i].outerHTML);
 
     
-    console.log(notifications[notifications.length-1]);
     animationshow(notifications[notifications.length-1]);
+
+    modal.style.display="none";
+    modalcontent.style.display="none";
 
     return false;
 }
@@ -327,14 +330,23 @@ function deletelocal(){
 }
 
 function openmodal(){
-    const modal = document.getElementById("modal");
-    const main = document.getElementsByTagName("main")[0];
+    modalclick++;
     modal.style.display="block";
-    main.style="filter: brightness(0.5)";
+    modalcontent.style.display="block";
 }
+
+
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
     if(!hidden)
     if (!dropdown[0].contains(event.target))
         rollup();
+  });
+
+  document.addEventListener('click', function handleClickOutsideBox(event) {
+    if(!modalclick)
+    if (!modalcontent.contains(event.target)){
+        modal.style.display="none";
+        modalclick--;
+    }
   });
