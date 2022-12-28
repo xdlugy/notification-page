@@ -9,6 +9,8 @@ const hideall = document.getElementsByClassName('hideall');
 const readall = document.getElementsByClassName('readall');
 const picture = document.getElementsByClassName('picture');
 const text = document.getElementsByClassName('text');
+const addbutton = document.getElementById("addbutton");
+
 var hidden=0;
 var dropclicked = 0;
 var readnotifications = 0;
@@ -185,8 +187,7 @@ function add(){
     
     animationshow(notifications[notifications.length-1]);
 
-    modal.style.display="none";
-    modalcontent.style.display="none";
+    closemodal();
 
     return false;
 }
@@ -330,9 +331,19 @@ function deletelocal(){
 }
 
 function openmodal(){
-    modalclick++;
+    modalcontent.style.animation="animatetop 0.5s";
+    modal.style.animation="animateopacity 0.5s";
     modal.style.display="block";
     modalcontent.style.display="block";
+}
+
+function closemodal(){
+    modalcontent.style.animation="animatetop-reverse 0.5s";
+    modal.style.animation="animateopacity-reverse 0.5s";
+    setTimeout(() => {
+        modalcontent.style.display="none";
+    modal.style.display="none";
+    }, 300);
 }
 
 
@@ -341,12 +352,22 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
     if(!hidden)
     if (!dropdown[0].contains(event.target))
         rollup();
+    
+    if(!addbutton.contains(event.target))
+    if (!modalcontent.contains(event.target))
+        closemodal();
   });
 
-  document.addEventListener('click', function handleClickOutsideBox(event) {
-    if(!modalclick)
-    if (!modalcontent.contains(event.target)){
-        modal.style.display="none";
-        modalclick--;
-    }
-  });
+  var checkbox = document.getElementById("new");
+  var newwrapper = document.getElementById("newwrapper");
+
+checkbox.addEventListener('change',function () {
+    if(this.checked)
+        newwrapper.style.backgroundColor="rgb(232, 240, 255)";
+    else
+        newwrapper.style.backgroundColor="white";
+});
+
+function resetform(){
+    newwrapper.style.backgroundColor="white";
+}
