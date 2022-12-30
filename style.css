@@ -222,6 +222,7 @@ h3 {
     position: absolute;
     display: none;
     z-index: 11;
+    width: 80%;
     max-width: 500px;
     height: 80%;
     background-color: rgb(255,255,255);
@@ -330,6 +331,17 @@ form #newwrapper {
 
 form #newwrapper:hover {
     transform: scale(1.1);
+}
+
+@media screen and (max-height: 900px) {
+    form {
+        margin-top: 0;
+    }
+
+    #modalcontent {
+        width: 90%;
+        overflow-y: auto;
+    }
 }
 
 * {
