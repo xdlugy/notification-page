@@ -206,7 +206,7 @@ h3 {
 }
 
 #modal {
-    position: absolute;
+    position: fixed;
     display: none;
     z-index: 10;
     background-color: rgba(0,0,0,0.4);
@@ -226,7 +226,7 @@ h3 {
     height: 80%;
     background-color: rgb(255,255,255);
     left: 50%;
-    top: 2%;
+    top: 5%;
     transform: translate(-50%);
     border-radius: 25px;
     padding: 25px;
@@ -237,11 +237,11 @@ h3 {
 
 @keyframes animatetop {
     from {top:-100%}
-    to {top:2%}
+    to {top:5%}
   }
 
   @keyframes animatetop-reverse {
-    from {top: 2%}
+    from {top: 5%}
     to {top: -100%}
   }
 

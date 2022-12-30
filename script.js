@@ -234,6 +234,19 @@ function read(){
         readnotifications = 1;
     }
 
+    hideall[0].style="opacity: 0";
+    if(!readnotifications)
+    readall[0].style="opacity: 0";
+    setTimeout(() => {
+        hideall[0].style="transform: scale(0)";
+        hideall[0].style="display: none";
+        readall[0].style="transform: scale(0)";
+        readall[0].style="display: none";
+        dropcontent[0].style="display: none";
+    dropbutton[0].style="";
+    dropdown[0].style="border: none";
+    }, 300);
+    dropclicked=0;
     
     end=notifications.length;
     for(let i=0; i<end; i++)
@@ -346,6 +359,12 @@ function closemodal(){
     }, 300);
 }
 
+function resetform(){
+    newwrapper.style.backgroundColor="white";
+    uploadedavatar="";
+    uploadedpicture="";
+}
+
 
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
@@ -367,7 +386,3 @@ checkbox.addEventListener('change',function () {
     else
         newwrapper.style.backgroundColor="white";
 });
-
-function resetform(){
-    newwrapper.style.backgroundColor="white";
-}
