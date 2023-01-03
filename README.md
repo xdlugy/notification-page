@@ -14,7 +14,9 @@ Works on Desktops and Mobile!
 
 ## Screenshots
 Main page:
+
 ![](/assets/images/Screenshot_5.png)
 
 Adding notification modal:
+
 ![](/assets/images/Screenshot_6.png)
