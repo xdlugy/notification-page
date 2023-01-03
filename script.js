@@ -387,16 +387,13 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
   });
 
   var checkbox = document.getElementById("new");
-  var check = document.getElementById("check");
   var newwrapper = document.getElementById("newwrapper");
 
 checkbox.addEventListener('change',function () {
     if(this.checked){
         newwrapper.style.backgroundColor="rgb(232, 240, 255)";
-        check.style.opacity="100%";
     }
     else{
         newwrapper.style.backgroundColor="white";
-        check.style.opacity="0";
     }
 });

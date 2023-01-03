@@ -372,7 +372,11 @@ form #newwrapper:hover {
 
 @media screen and (max-height: 900px) {
     form * {
-        margin-bottom: 7px;
+        margin-bottom: 3px;
+    }
+
+    form #newwrapper {
+        margin-top: 0;
     }
 
     form #buttons {
@@ -381,12 +385,15 @@ form #newwrapper:hover {
     }
 
     form #buttons button {
-        height: 60px;
+        line-height: 12px;
+        height: 48px;
     }
 
     #modalcontent {
         width: 80%;
     }
+
+    
 }
 
 * {
