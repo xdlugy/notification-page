@@ -91,14 +91,14 @@
     <button type="button" id="closemodal" class="dropbutton" onclick="closemodal()">&#10005;</button>
     <form>
       
-      Avatar<label for="avatar">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar">
+      Avatar<label for="avatar" id="avatarlabel">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar">
       <input type="text" id="name" name="name" placeholder="Name">
       <input type="text" id="action" name="action" placeholder="Action">
       <input type="text" id="content" name="content"  placeholder="Content">
       <input type="text" id="app" name="app"  placeholder="App name">
       <textarea id="textbox" name="textbox" placeholder="Textbox"></textarea>
-      Picture<label for="picture">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture">
-      New notification?<button type="button" id="newwrapper">&check;<input type="checkbox" id="new" name="new"></button>
+      Picture<label for="picture" id="picturelabel">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture">
+      New notification?<div id="newwrapper"><input type="checkbox" id="new" name="new"></div>
       <div id="buttons">
         <button type="button" onclick="add()">Add</button>
         <button type="reset" onclick="resetform()">Reset</button>

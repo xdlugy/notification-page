@@ -41,6 +41,8 @@ window.onload=function(){
       const reader = new FileReader();
       reader.addEventListener("load", () => {
           uploadedavatar = reader.result;
+          let avatarlabel = document.getElementById("avatarlabel");
+          avatarlabel.innerHTML=this.files[0].name;
       })
       reader.readAsDataURL(this.files[0]);
   })
@@ -49,6 +51,9 @@ window.onload=function(){
       const reader = new FileReader();
       reader.addEventListener("load", () => {
           uploadedpicture = reader.result;
+          let picturelabel = document.getElementById("picturelabel");
+          picturelabel.innerHTML=this.files[0].name;
+
       })
       reader.readAsDataURL(this.files[0]);
   })
@@ -363,6 +368,10 @@ function resetform(){
     newwrapper.style.backgroundColor="white";
     uploadedavatar="";
     uploadedpicture="";
+    let avatarlabel = document.getElementById("avatarlabel");
+    avatarlabel.innerHTML="Choose file";
+    let picturelabel = document.getElementById("picturelabel");
+    picturelabel.innerHTML="Choose file";
 }
 
 

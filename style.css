@@ -295,10 +295,14 @@ input[type="file"] {
 }
 
 label {
+    width: 90px;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
     background-color: rgb(232, 240, 255);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 label:hover {
@@ -358,6 +362,8 @@ form #newwrapper {
     height: 30px;
     border: 1px solid gray;
     border-radius: 50%;
+    padding: 4px;
+    background-clip:content-box;
 }
 
 form #newwrapper:hover {
