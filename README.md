@@ -11,7 +11,7 @@ Added new functionalities to original:
  - saving current notifications state to local storage
 
 Live preview:
-[https://htmlpreview.github.io/?https://github.com/xdlugy/notification-page/blob/master/index.html](https://htmlpreview.github.io/)
+[htmlpreview.github.io](https://htmlpreview.github.io/?https://github.com/xdlugy/notification-page/blob/master/index.html)
 
 Works on Desktops and Mobile!
 
