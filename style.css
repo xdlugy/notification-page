@@ -275,11 +275,35 @@ div:has(#addbutton) {
     transform: scale(1.1);
 }
 
+#closemodal {
+    right: 20px;
+    position: absolute;
+}
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
+}
+
+form * {
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgb(232, 240, 255);
+}
+
+label:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 form input, textarea {
@@ -300,7 +324,14 @@ form #avatar, #picture {
     border: none;
 }
 
-form button {
+form #buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+form #buttons button {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid lightgray;
@@ -308,7 +339,7 @@ form button {
     width: 50%;
 }
 
-form button:hover {
+form #buttons button:hover {
     cursor: pointer;
     background-color: lightgray;
     transform: scale(1.1);
@@ -333,14 +364,28 @@ form #newwrapper:hover {
     transform: scale(1.1);
 }
 
+form #check {
+    opacity: 0;
+    text-align: center;
+    margin-top: 3px;
+}
+
 @media screen and (max-height: 900px) {
-    form {
-        margin-top: 0;
+    form * {
+        margin-bottom: 7px;
+    }
+
+    form #buttons {
+        flex-direction: row;
+        width: 90%;
+    }
+
+    form #buttons button {
+        height: 60px;
     }
 
     #modalcontent {
         width: 80%;
-        overflow-y: auto;
     }
 }
 

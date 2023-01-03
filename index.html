@@ -88,18 +88,23 @@
 
 <div id="modal">
   <div id="modalcontent">
+    <button type="button" id="closemodal" class="dropbutton" onclick="closemodal()">&#10005;</button>
     <form>
-      <label for="avatar">Avatar</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar"><br>
-      <input type="text" id="name" name="name" placeholder="Name"><br>
-      <input type="text" id="action" name="action" placeholder="Action"><br>
-      <input type="text" id="content" name="content"  placeholder="Content"><br>
-      <input type="text" id="app" name="app"  placeholder="App name"><br>
-      <textarea id="textbox" name="textbox" placeholder="Textbox"></textarea><br>
-      <label for="picture">Picture</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture"><br>
-      <label for="new">New notification?</label><div id="newwrapper"><input type="checkbox" id="new" name="new"></div><br>
-      <button type="button" onclick="add()">Add</button>
-      <button type="reset" onclick="resetform()">Reset</button>
-      <button type="button" onclick="deletelocal()">Clear notifications</button>
+      
+      Avatar<label for="avatar">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="avatar" name="avatar">
+      <input type="text" id="name" name="name" placeholder="Name">
+      <input type="text" id="action" name="action" placeholder="Action">
+      <input type="text" id="content" name="content"  placeholder="Content">
+      <input type="text" id="app" name="app"  placeholder="App name">
+      <textarea id="textbox" name="textbox" placeholder="Textbox"></textarea>
+      Picture<label for="picture">Choose file</label><input type="file" accept="image/jpeg, image/png, image/jpg, image/webp" id="picture" name="picture">
+      New notification?<div id="newwrapper"><div id="check">&check;</div><input type="checkbox" id="new" name="new"></div>
+      <div id="buttons">
+        <button type="button" onclick="add()">Add</button>
+        <button type="reset" onclick="resetform()">Reset</button>
+        <button type="button" onclick="deletelocal()">Clear notifications</button>
+      </div>
+      
     </form>
   </div>
 </div>
