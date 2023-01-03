@@ -364,12 +364,6 @@ form #newwrapper:hover {
     transform: scale(1.1);
 }
 
-form #check {
-    opacity: 0;
-    text-align: center;
-    margin-top: 3px;
-}
-
 @media screen and (max-height: 900px) {
     form * {
         margin-bottom: 7px;
